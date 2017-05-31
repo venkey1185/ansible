@@ -1,0 +1,10 @@
+---
+- hosts: all
+  remote_user: root
+  tasks:
+    - name: Unix Test
+      shell: /usr/bin/pwd
+      remote_user: root
+    - name: test connection
+      ping:
+      remote_user: root
