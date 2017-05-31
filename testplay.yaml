@@ -4,6 +4,7 @@
   tasks:
     - name: Unix Test
       shell: /usr/bin/pwd
+	  shell: mkdir /root/test1
       remote_user: root
     - name: test connection
       ping:
