@@ -1,0 +1,12 @@
+create user hive with password 'dev';
+create database hive;
+alter database hive owner to hive;
+create user oozie with password 'dev';
+create database oozie;
+alter database oozie owner to oozie;
+create user superset with password 'dev';
+create database superset;
+alter database superset owner to superset;
+create user rangerkms with password 'dev';
+create database rangerkms;
+alter database rangerkms owner to rangerkms;
