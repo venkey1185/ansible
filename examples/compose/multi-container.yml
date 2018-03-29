@@ -2,7 +2,7 @@ version: '3'
 services:
   dbhost01.hcc.com:
     build:
-     context: ../../containers/postgres
+     context: ../../containers/mysql
      args:
       - AMBARI_DDL_URL=${AMBARI_DDL_URL}
     image: hdp/dbhost01
@@ -18,11 +18,11 @@ services:
     image: hdp/masternode
     networks:
      - dev
-    hostname: ambari-server
+    hostname: hdp-master-01.hcc.com
     domainname: hcc.com
     ports:
      - "8080:8080"
-	 # ZooKeeper
+     # ZooKeeper
      - "2181:2181"
      # HDFS
      - "8020:8020"
@@ -72,7 +72,7 @@ services:
       args:
        - AMBARI_REPO_URL=${AMBARI_REPO_URL}
        - HDP_REPO_URL=${HDP_REPO_URL}
-    image: hdp/datanode-01
+    image: hdp/worker
     privileged: true
     networks:
      - dev
@@ -97,7 +97,7 @@ services:
      - "8983:8983"
      # Kafka
      - "6667:6667"
-  hdp-datanode-02.dev:
+  hdp-datanode-02.hcc.com:
     build:
       context: ../../containers/node
       args:
