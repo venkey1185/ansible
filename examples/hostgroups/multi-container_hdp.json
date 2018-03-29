@@ -1,0 +1,23 @@
+{ "blueprint":"multi-container",
+"default_password" : "dev",
+"configurations" : [
+  {
+    "hive-site" : {
+      "properties" : {
+        "javax.jdo.option.ConnectionURL" : "jdbc:mysql://dbhost01.hcc.com:3306/hive"
+      }
+    }
+  }
+],
+"host_groups":[
+  { "name":"host_group_1",
+    "hosts":[ { "fqdn":"hdp-master-01.hcc.com" } ]
+  },
+  { "name":"host_group_2",
+    "hosts":[ { "fqdn":"hdp-datanode-01.hcc.com" } ]
+  },
+  { "name":"host_group_3",
+    "hosts":[ { "fqdn":"hdp-datanode-02.hcc.com" } ]
+  }
+]
+}
